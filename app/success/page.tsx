@@ -1,0 +1,322 @@
+"use client";
+
+import React, { Suspense, useEffect, useState } from "react";
+import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  CheckCircle,
+  Mail,
+  Video,
+  CalendarCheck,
+  AlertCircle,
+  LifeBuoy,
+  ArrowRight,
+  Loader2,
+} from "lucide-react";
+import { fbEvent } from "@/components/FacebookPixel";
+
+type SessionData = {
+  name: string;
+  email: string;
+  phone?: string;
+  amount: string;
+  transactionId: string;
+  paymentStatus: string;
+};
+
+function SuccessContent() {
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get("session_id");
+
+  const [sessionData, setSessionData] = useState<SessionData | null>(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  // Fallback values for query-param previewing (dev / legacy)
+  const fallback: SessionData = {
+    name: searchParams.get("name") || "there",
+    email: searchParams.get("email") || "—",
+    amount: searchParams.get("amount") || "$97.00",
+    transactionId: searchParams.get("transactionId") || "—",
+    paymentStatus: "paid",
+  };
+
+  const date = "April 10, 2026";
+  const time = "5:00 PM EST";
+  const zoomLink = process.env.NEXT_PUBLIC_ZOOM_LINK || "https://zoom.us/";
+
+  useEffect(() => {
+    if (!sessionId) {
+      // No Stripe session – use fallback params
+      setSessionData(fallback);
+      setLoading(false);
+      return;
+    }
+
+    const verify = async () => {
+      try {
+        const res = await fetch(`/api/verify-session?session_id=${sessionId}`);
+        const data = await res.json();
+
+        if (!res.ok) throw new Error(data.error || "Verification failed.");
+        setSessionData(data);
+
+        // 🔥 FB Pixel: Purchase event — payment confirmed by Stripe
+        fbEvent("Purchase", {
+          value: 97,
+          currency: "USD",
+          content_name: "Sales Engine Workshop",
+          transaction_id: data.transactionId,
+        });
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    verify();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionId]);
+
+  const d = sessionData ?? fallback;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#040B1A] flex flex-col items-center justify-center gap-4">
+        <Loader2 className="w-10 h-10 text-[#1877f2] animate-spin" />
+        <p className="text-gray-400 text-[14px] animate-pulse font-medium">Confirming your payment…</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#040B1A] flex flex-col items-center justify-center gap-4 px-6 text-center">
+        <AlertCircle className="w-12 h-12 text-red-400" />
+        <h1 className="text-2xl font-bold text-white">Something went wrong</h1>
+        <p className="text-gray-400 text-[14px] max-w-sm">{error}</p>
+        <Button onClick={() => window.location.href = "/"} className="bg-[#1877f2] hover:bg-[#1565c0] text-white px-8 py-4 rounded font-bold mt-2">
+          Return to Home
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-[#040B1A] text-white font-sans selection:bg-[#1877f2] selection:text-white pb-16">
+
+      {/* HEADER */}
+      <div className="w-full flex justify-center pt-8 pb-4 border-b border-gray-800">
+        <Image
+          src="/logoMain.png"
+          alt="Brand Logo"
+          width={160}
+          height={50}
+          className="w-auto h-auto object-contain"
+          priority
+        />
+      </div>
+
+      <div className="max-w-[750px] mx-auto px-4 flex flex-col items-center pt-10">
+
+        {/* 1. HERO */}
+        <div className="w-full flex flex-col items-center text-center mb-10">
+          <div className="w-20 h-20 rounded-full bg-green-500/10 border-2 border-green-500/40 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(34,197,94,0.15)]">
+            <CheckCircle className="w-10 h-10 text-green-400" />
+          </div>
+
+          <div className="w-full max-w-[500px] bg-[#1877f2] text-white font-bold text-[13px] md:text-[15px] py-2 rounded mb-6 text-center uppercase tracking-wide">
+            PAYMENT SUCCESSFUL ✓
+          </div>
+
+          <h1 className="text-3xl md:text-[42px] font-bold text-center leading-[1.1] mb-4 text-[#f8fafc]">
+            SUCCESS – YOU'RE IN!
+          </h1>
+          <h2 className="text-[17px] md:text-[20px] font-semibold text-gray-300 mb-4">
+            Congratulations on registering, {d.name}!
+          </h2>
+          <p className="text-[14px] md:text-[15px] text-gray-400 leading-relaxed max-w-[520px]">
+            You've successfully unlocked the exact strategies to build a predictable revenue machine. But you're <strong>not done yet</strong> — complete the steps below.
+          </p>
+        </div>
+
+        {/* 2. NEXT STEPS */}
+        <div className="w-full mb-10">
+          <div className="w-full bg-[#1877f2] text-white font-bold text-[13px] md:text-[15px] py-2 rounded-t text-center uppercase tracking-wide">
+            IMPORTANT NEXT STEPS
+          </div>
+
+          <div className="w-full bg-white text-black rounded-b-md shadow-2xl overflow-hidden">
+
+            {/* Card 1 */}
+            <div className="flex items-start gap-4 p-5 border-b border-gray-100">
+              <div className="shrink-0 w-10 h-10 bg-blue-50 border border-blue-100 rounded-full flex items-center justify-center">
+                <Mail className="w-5 h-5 text-[#1877f2]" />
+              </div>
+              <div>
+                <p className="font-bold text-[15px] text-gray-900 mb-1">1. Check Your Email</p>
+                <p className="text-[13px] text-gray-600 leading-relaxed">
+                  Your receipt and access details were sent to <strong>{d.email}</strong>.
+                </p>
+                <div className="inline-flex items-center gap-1.5 text-[11px] text-amber-600 bg-amber-50 border border-amber-200 px-2 py-1 rounded mt-2 font-medium">
+                  <AlertCircle className="w-3.5 h-3.5" /> Check promotions/spam folder.
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Primary Zoom CTA */}
+            <div className="relative flex items-start gap-4 p-5 border-b border-gray-100 bg-blue-50">
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#1877f2] rounded-l" />
+              <div className="shrink-0 w-10 h-10 bg-[#1877f2] rounded-full flex items-center justify-center shadow-md">
+                <Video className="w-5 h-5 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="font-bold text-[15px] text-gray-900 mb-1">2. Complete Your Zoom Registration</p>
+                <p className="text-[13px] text-gray-600 leading-relaxed mb-3">
+                  <strong>This step is required to attend.</strong> Click below to secure your unique live session access link.
+                </p>
+                <a href={zoomLink} target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[14px] px-6 py-5 rounded shadow-md flex items-center gap-2 transition-all hover:scale-[1.02]">
+                    Register for Zoom Session <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="flex items-start gap-4 p-5">
+              <div className="shrink-0 w-10 h-10 bg-purple-50 border border-purple-100 rounded-full flex items-center justify-center">
+                <CalendarCheck className="w-5 h-5 text-purple-500" />
+              </div>
+              <div>
+                <p className="font-bold text-[15px] text-gray-900 mb-1">3. Add to Calendar</p>
+                <p className="text-[13px] text-gray-500 mb-3">Block your time so you don't miss any live strategies.</p>
+                <div className="flex gap-6 text-[13px]">
+                  <div><span className="font-bold text-gray-400 uppercase text-[10px] tracking-wide block">Date</span><span className="text-gray-800 font-semibold">{date}</span></div>
+                  <div><span className="font-bold text-gray-400 uppercase text-[10px] tracking-wide block">Time</span><span className="text-gray-800 font-semibold">{time}</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* 3. What Happens Next */}
+        <div className="w-full bg-white text-black rounded-md shadow-2xl mb-8 p-6 md:p-8">
+          <h3 className="text-[18px] md:text-[22px] font-extrabold mb-5 text-gray-900">WHAT HAPPENS NEXT</h3>
+          <ul className="space-y-3 mb-6">
+            {[
+              "You will receive your unique Zoom link immediately after completing step 2.",
+              "A reminder email will be sent 24 hours before we begin.",
+              "Be ready for a value-packed live workshop with a dedicated Q&A.",
+            ].map((t, i) => (
+              <li key={i} className="flex items-start gap-3 text-[13px] md:text-[14px] text-gray-700">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
+                {t}
+              </li>
+            ))}
+          </ul>
+          <div className="border-l-4 border-amber-400 bg-amber-50 rounded-r px-4 py-3">
+            <p className="font-bold text-gray-800 text-[13px] mb-1">Can't make it on time?</p>
+            <p className="text-[12px] text-gray-600 leading-relaxed">
+              A limited-time replay will be sent directly to your inbox after the live event. Still register on Zoom to stay notified.
+            </p>
+          </div>
+        </div>
+
+        {/* 4. Order Summary (Receipt) */}
+        <div className="w-full bg-white text-black rounded-md shadow-2xl mb-8 overflow-hidden">
+          <div className="bg-[#1877f2] text-white font-bold text-[13px] md:text-[15px] py-2 text-center uppercase tracking-wide">
+            ORDER SUMMARY
+          </div>
+          <div className="p-6 md:p-8">
+            <div className="flex justify-between items-center border-b border-gray-100 pb-4 mb-4">
+              <div>
+                <p className="font-bold text-gray-900 text-[14px]">Workshop Ticket</p>
+                <p className="text-[12px] text-gray-400">The Ultimate Sales Engine Framework</p>
+              </div>
+              <span className="text-xl font-extrabold text-[#1877f2]">{d.amount}</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4 text-[13px] text-gray-600 mb-4">
+              <div><span className="font-bold text-gray-400 text-[10px] uppercase tracking-wide block">Date</span>{date}</div>
+              <div><span className="font-bold text-gray-400 text-[10px] uppercase tracking-wide block">Time</span>{time}</div>
+              <div><span className="font-bold text-gray-400 text-[10px] uppercase tracking-wide block">Name</span>{d.name}</div>
+              <div><span className="font-bold text-gray-400 text-[10px] uppercase tracking-wide block">Email</span><span className="break-all">{d.email}</span></div>
+            </div>
+            <div className="border-t border-dashed border-gray-200 pt-4 flex justify-between items-center">
+              <div>
+                <span className="font-bold text-gray-400 text-[10px] uppercase tracking-wide block">Transaction ID</span>
+                <span className="font-mono text-[11px] text-gray-500">{d.transactionId}</span>
+              </div>
+              <div className="text-right">
+                <span className="font-bold text-gray-400 text-[10px] uppercase tracking-wide block">Status</span>
+                <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 text-[11px] font-bold px-2 py-0.5 rounded-full">✓ PAID</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 5. Support */}
+        <div className="w-full bg-white text-black rounded-md shadow-md mb-8 p-5 flex items-center justify-between gap-4 flex-col sm:flex-row">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 bg-blue-50 border border-blue-100 rounded-full flex items-center justify-center">
+              <LifeBuoy className="w-4 h-4 text-[#1877f2]" />
+            </div>
+            <div>
+              <p className="font-bold text-[14px] text-gray-900">Need Help?</p>
+              <p className="text-[12px] text-gray-500">Our team is happy to help with any questions.</p>
+            </div>
+          </div>
+          <Button variant="outline" className="border-[#1877f2] text-[#1877f2] hover:bg-[#1877f2] hover:text-white text-[13px] font-bold transition-all">
+            Contact Support
+          </Button>
+        </div>
+
+        {/* 6. Final CTA */}
+        <div className="w-full text-center mb-10">
+          <h2 className="text-[22px] md:text-[28px] font-extrabold text-white mb-2">
+            We're excited to see you inside.
+          </h2>
+          <p className="text-[13px] text-gray-500 mb-6">
+            Lock in your focus. Block out distractions. Get ready to transform your brand.
+          </p>
+          <a href={zoomLink} target="_blank" rel="noopener noreferrer">
+            <Button className="w-full md:w-auto bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[16px] md:text-[18px] px-10 py-6 rounded shadow-lg transition-all hover:scale-[1.02] flex items-center gap-2 mx-auto">
+              Join Zoom Now <ArrowRight className="w-5 h-5" />
+            </Button>
+          </a>
+        </div>
+
+        {/* FOOTER */}
+        <div className="w-full flex flex-col items-center text-center pb-8 border-t border-gray-800 pt-8">
+          <Image
+            src="/logoMain.png"
+            alt="Brand Logo"
+            width={140}
+            height={45}
+            className="w-auto h-auto object-contain mb-4 opacity-70"
+          />
+          <p className="text-[10px] text-gray-600 max-w-[500px] leading-relaxed">
+            Disclaimer: The results expressed in this training are illustrative and not guaranteed. Your success is entirely up to you and the work you put in.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#040B1A] flex items-center justify-center flex-col gap-4">
+        <Loader2 className="w-10 h-10 text-[#1877f2] animate-spin" />
+        <p className="text-gray-500 font-medium text-[13px]">Loading your confirmation…</p>
+      </div>
+    }>
+      <SuccessContent />
+    </Suspense>
+  );
+}
