@@ -65,7 +65,12 @@ export function renderHtml(firstName: string, lines: string[]): string {
                     <!-- Header -->
                     <tr>
                         <td align="center" style="background-color: ${bgDark}; padding: 35px 20px; border-bottom: 4px solid ${primaryColor};">
-                            <img src="${baseUrl}/logoMain.png" alt="Zen Focus Media" width="160" style="display: block; max-width: 100%; height: auto;" onerror="this.style.display='none'">
+                            <img 
+                                src="${baseUrl}/logoMain.png" 
+                                alt="Zen Focus Media" 
+                                width="180" 
+                                style="display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;"
+                            >
                         </td>
                     </tr>
                     
