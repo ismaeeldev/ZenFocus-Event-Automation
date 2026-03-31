@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ImageIcon } from "lucide-react";
+import { ImageIcon, X } from "lucide-react";
 import { fbEvent } from "@/components/FacebookPixel";
 
 // Reusable SVG for the solid blue checkmark seen in the image
@@ -21,6 +21,7 @@ export default function WorkshopLandingPage() {
   const [error, setError] = useState("");
   const [step, setStep] = useState(1);
   const [visitorCount, setVisitorCount] = useState(0);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   // Track visitor on mount
   useEffect(() => {
@@ -375,7 +376,11 @@ export default function WorkshopLandingPage() {
           <div className="flex gap-4 mb-4">
             {/* Large feature card */}
             <div className="flex-[2] bg-white rounded-2xl shadow-xl p-3 flex flex-col">
-              <div className="rounded-xl overflow-hidden relative group" style={{ minHeight: "200px" }}>
+              <div
+                className="rounded-xl overflow-hidden relative group cursor-pointer"
+                style={{ minHeight: "200px" }}
+                onClick={() => setPreviewImage("/1.jpeg")}
+              >
                 <Image
                   src="/1.jpeg"
                   alt="Social proof 1"
@@ -391,10 +396,14 @@ export default function WorkshopLandingPage() {
 
             {/* Portrait card */}
             <div className="flex-[1] bg-white rounded-2xl shadow-xl p-3 flex flex-col">
-              <div className="rounded-xl overflow-hidden relative group flex-1" style={{ minHeight: "200px" }}>
+              <div
+                className="rounded-xl overflow-hidden relative group flex-1 cursor-pointer"
+                style={{ minHeight: "200px" }}
+                onClick={() => setPreviewImage("/2.png")}
+              >
                 <Image
-                  src="/6.jpeg"
-                  alt="Social proof 6"
+                  src="/2.png"
+                  alt="Social proof 2"
                   width={220}
                   height={280}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -402,15 +411,18 @@ export default function WorkshopLandingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
               </div>
-              <p className="font-extrabold text-[14px] text-black mt-2.5 px-1">Social proof image 6 👍</p>
+              <p className="font-extrabold text-[14px] text-black mt-2.5 px-1">Social proof image 2 👍</p>
             </div>
           </div>
 
           {/* Middle row: 3 square cards */}
           <div className="grid grid-cols-3 gap-4 mb-4">
-            {[{ src: "/2.png", n: 2 }, { src: "/3.png", n: 3 }, { src: "/4.jpeg", n: 4 }].map(({ src, n }) => (
+            {[{ src: "/3.png", n: 3 }, { src: "/4.jpeg", n: 4 }, { src: "/5.jpeg", n: 5 }].map(({ src, n }) => (
               <div key={n} className="bg-white rounded-2xl shadow-xl p-3 flex flex-col">
-                <div className="rounded-xl overflow-hidden relative group aspect-square">
+                <div
+                  className="rounded-xl overflow-hidden relative group aspect-square cursor-pointer"
+                  onClick={() => setPreviewImage(src)}
+                >
                   <Image
                     src={src}
                     alt={`Social proof ${n}`}
@@ -427,17 +439,21 @@ export default function WorkshopLandingPage() {
 
           {/* Bottom: full-width panoramic card */}
           <div className="bg-white rounded-2xl shadow-xl p-3">
-            <div className="rounded-xl overflow-hidden relative group" style={{ height: "170px" }}>
+            <div
+              className="rounded-xl overflow-hidden relative group cursor-pointer"
+              style={{ height: "170px" }}
+              onClick={() => setPreviewImage("/6.jpeg")}
+            >
               <Image
-                src="/5.jpeg"
-                alt="Social proof 5"
+                src="/6.jpeg"
+                alt="Social proof 6"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="700px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
             </div>
-            <p className="font-extrabold text-[14px] text-black mt-2.5 px-1">Social proof image 5 👍</p>
+            <p className="font-extrabold text-[14px] text-black mt-2.5 px-1">Social proof image 6 👍</p>
           </div>
 
         </div>
@@ -465,6 +481,34 @@ export default function WorkshopLandingPage() {
         </div>
 
       </div>
+
+      {/* Image Preview Overlay */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          onClick={() => setPreviewImage(null)}
+        >
+          <button
+            className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors cursor-pointer"
+            onClick={(e) => { e.stopPropagation(); setPreviewImage(null); }}
+            aria-label="Close preview"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          <div
+            className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={previewImage}
+              alt="Preview"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
