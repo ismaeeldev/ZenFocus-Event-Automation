@@ -21,7 +21,7 @@ import {
   VideoOff
 } from "lucide-react";
 import { fbEvent } from "@/components/FacebookPixel";
-import { ZOOM_DETAILS } from "@/lib/config";
+import { MEET_DETAILS } from "@/lib/config";
 import {
   Dialog,
   DialogContent,
@@ -56,8 +56,8 @@ function SuccessContent() {
     setTimeout(() => setCopiedField(null), 2000);
   };
 
-  const date = "April 10, 2026";
-  const time = "6:00 AM DUBAI (GST)";
+  const date = "April 14, 2026";
+  const time = "8pm New York time (EST)";
 
   useEffect(() => {
     if (!sessionId) {
@@ -179,22 +179,22 @@ function SuccessContent() {
               </div>
             </div>
 
-            {/* Card 2: Primary Zoom CTA */}
+            {/* Card 2: Primary Meet CTA */}
             <div className="relative flex items-start gap-4 p-5 border-b border-gray-100 bg-blue-50">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#1877f2] rounded-l" />
               <div className="shrink-0 w-10 h-10 bg-[#1877f2] rounded-full flex items-center justify-center shadow-md">
                 <Video className="w-5 h-5 text-white" />
               </div>
               <div className="flex-1">
-                <p className="font-bold text-[15px] text-gray-900 mb-1">2. Complete Your Zoom Registration</p>
+                <p className="font-bold text-[15px] text-gray-900 mb-1">2. Save Google Meet Details</p>
                 <p className="text-[13px] text-gray-600 leading-relaxed mb-3">
                   <strong>This step is required to attend.</strong> Click below to secure your unique live session access link.
                 </p>
-                <Button 
+                <Button
                   onClick={() => setIsZoomModalOpen(true)}
-                  className="bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[14px] px-6 py-5 rounded shadow-md flex items-center gap-2 transition-all hover:scale-[1.02]"
+                  className="bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[13px] sm:text-[14px] px-4 sm:px-6 py-4 sm:py-5 rounded shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.02] w-full sm:w-auto h-auto whitespace-normal leading-tight"
                 >
-                  Register for Zoom Session <ArrowRight className="w-4 h-4" />
+                  View Google Meet Details <ArrowRight className="w-4 h-4 shrink-0" />
                 </Button>
               </div>
             </div>
@@ -222,7 +222,7 @@ function SuccessContent() {
           <h3 className="text-[18px] md:text-[22px] font-extrabold mb-5 text-gray-900">WHAT HAPPENS NEXT</h3>
           <ul className="space-y-3 mb-6">
             {[
-              "You will receive your unique Zoom link immediately after completing step 2.",
+              "You will receive your unique Google Meet link securely.",
               "A reminder email will be sent 24 hours before we begin.",
               "Be ready for a value-packed live workshop with a dedicated Q&A.",
             ].map((t, i) => (
@@ -235,7 +235,7 @@ function SuccessContent() {
           <div className="border-l-4 border-amber-400 bg-amber-50 rounded-r px-4 py-3">
             <p className="font-bold text-gray-800 text-[13px] mb-1">Can't make it on time?</p>
             <p className="text-[12px] text-gray-600 leading-relaxed">
-              A limited-time replay will be sent directly to your inbox after the live event. Still register on Zoom to stay notified.
+              A limited-time replay will be sent directly to your inbox after the live event. Still save your Google Meet link to stay notified.
             </p>
           </div>
         </div>
@@ -280,10 +280,10 @@ function SuccessContent() {
             </div>
             <div>
               <p className="font-bold text-[14px] text-gray-900">Need Help?</p>
-              <p className="text-[12px] text-gray-500">Our team is happy to help with any questions.</p>
+              <p className="text-[12px] text-gray-500">Our team is happy to help with any questions. Email us at yasirsultan1992@gmail.com</p>
             </div>
           </div>
-          <Button variant="outline" className="border-[#1877f2] text-[#1877f2] hover:bg-[#1877f2] hover:text-white text-[13px] font-bold transition-all">
+          <Button onClick={() => window.location.href = "mailto:yasirsultan1992@gmail.com"} variant="outline" className="border-[#1877f2] text-[#1877f2] hover:bg-[#1877f2] hover:text-white text-[13px] font-bold transition-all w-full sm:w-auto h-auto whitespace-normal leading-tight py-3">
             Contact Support
           </Button>
         </div>
@@ -296,7 +296,7 @@ function SuccessContent() {
           <p className="text-[13px] text-gray-500 mb-6">
             Lock in your focus. Block out distractions. Get ready to transform your brand.
           </p>
-          <Button 
+          <Button
             onClick={() => setIsZoomModalOpen(true)}
             className="w-full md:w-auto bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[16px] md:text-[18px] px-10 py-6 rounded shadow-lg transition-all hover:scale-[1.02] flex items-center gap-2 mx-auto"
           >
@@ -340,46 +340,33 @@ function SuccessContent() {
                 <div className="mt-1 shrink-0"><Video className="w-4 h-4 text-gray-400" /></div>
                 <div>
                   <p className="text-[11px] uppercase tracking-wider text-gray-500 font-bold mb-0.5">Topic</p>
-                  <p className="text-[14px] text-gray-200 font-medium">{ZOOM_DETAILS.topic}</p>
+                  <p className="text-[14px] text-gray-200 font-medium">{MEET_DETAILS.topic}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="mt-1 shrink-0"><Clock className="w-4 h-4 text-gray-400" /></div>
                 <div>
                   <p className="text-[11px] uppercase tracking-wider text-gray-500 font-bold mb-0.5">Time</p>
-                  <p className="text-[14px] text-gray-200 font-medium">{ZOOM_DETAILS.time}</p>
+                  <p className="text-[14px] text-gray-200 font-medium">{MEET_DETAILS.time}</p>
                 </div>
               </div>
             </div>
 
             <div className="h-px bg-gray-800 w-full" />
 
-            {/* ID & Passcode Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Dial In Grid */}
+            <div className="grid grid-cols-1 gap-4">
               <div className="bg-gray-900/50 p-3 rounded-lg border border-gray-800 flex flex-col gap-2">
                 <div className="flex items-center justify-between">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Meeting ID</p>
-                  <button 
-                    onClick={() => copyToClipboard(ZOOM_DETAILS.meetingId, 'id')}
+                  <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Phone Dial In</p>
+                  <button
+                    onClick={() => copyToClipboard(MEET_DETAILS.dialIn || '', 'dial')}
                     className="p-1.5 hover:bg-white/5 rounded transition-colors"
                   >
-                    {copiedField === 'id' ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5 text-gray-400" />}
+                    {copiedField === 'dial' ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5 text-gray-400" />}
                   </button>
                 </div>
-                <p className="text-[15px] font-mono font-bold text-white leading-none">{ZOOM_DETAILS.meetingId}</p>
-              </div>
-
-              <div className="bg-gray-900/50 p-3 rounded-lg border border-gray-800 flex flex-col gap-2">
-                <div className="flex items-center justify-between">
-                  <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Passcode</p>
-                  <button 
-                    onClick={() => copyToClipboard(ZOOM_DETAILS.passcode, 'passcode')}
-                    className="p-1.5 hover:bg-white/5 rounded transition-colors"
-                  >
-                    {copiedField === 'passcode' ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5 text-gray-400" />}
-                  </button>
-                </div>
-                <p className="text-[15px] font-mono font-bold text-white leading-none">{ZOOM_DETAILS.passcode}</p>
+                <p className="text-[15px] font-mono font-bold text-white leading-none">{MEET_DETAILS.dialIn}</p>
               </div>
             </div>
 
@@ -387,23 +374,23 @@ function SuccessContent() {
             <div className="bg-blue-500/5 p-4 rounded-lg border border-blue-500/10 space-y-2">
               <div className="flex items-center justify-between">
                 <p className="text-[10px] uppercase tracking-wider text-[#1877f2] font-bold">Meeting Link</p>
-                <button 
-                  onClick={() => copyToClipboard(ZOOM_DETAILS.link, 'link')}
+                <button
+                  onClick={() => copyToClipboard(MEET_DETAILS.link, 'link')}
                   className="p-1.5 hover:bg-blue-500/10 rounded transition-colors"
                 >
                   {copiedField === 'link' ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5 text-[#1877f2]" />}
                 </button>
               </div>
               <p className="text-[12px] font-mono text-gray-400 break-all leading-tight mb-2">
-                {ZOOM_DETAILS.link}
+                {MEET_DETAILS.link}
               </p>
-              <a 
-                href={ZOOM_DETAILS.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={MEET_DETAILS.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-[#1877f2] hover:bg-[#1565c0] text-white py-3 rounded-lg font-bold text-[14px] transition-all"
               >
-                Launch Zoom Meeting <ExternalLink className="w-4 h-4" />
+                Launch Google Meet <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </div>

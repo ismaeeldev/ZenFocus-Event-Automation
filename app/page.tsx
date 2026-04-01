@@ -9,7 +9,7 @@ import { fbEvent } from "@/components/FacebookPixel";
 
 // Reusable SVG for the solid blue checkmark seen in the image
 const CheckIcon = () => (
-  <svg className="w-5 h-5 text-[#1877f2] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-5 h-5 text-green-500 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
   </svg>
 );
@@ -102,11 +102,10 @@ export default function WorkshopLandingPage() {
         />
       </div>
 
-      <div className="max-w-[800px] mx-auto px-4 flex flex-col items-center">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 flex flex-col items-center">
 
-        {/* Date / Time Badge */}
-        <div className="w-full max-w-[600px] bg-[#1877f2] text-white font-bold text-[13px] md:text-[15px] py-2 rounded mb-4 text-center uppercase tracking-wide">
-          FREE ONLINE MASTERCLASS — April 10, 2026 | 6:00 AM DUBAI (GST)
+        <div className="w-full max-w-[1000px] bg-[#1877f2] text-white font-bold text-[12px] sm:text-[15px] md:text-[20px] py-3 sm:py-4 px-2 rounded mb-6 text-center uppercase tracking-wide shadow-md leading-tight">
+          FREE ONLINE MASTERCLASS — April 14, 2026 | 8pm New York time (EST)
         </div>
 
         {/* Live Visitor Counter */}
@@ -121,8 +120,8 @@ export default function WorkshopLandingPage() {
         )}
 
         {/* Headline */}
-        <h1 className="text-3xl md:text-[42px] font-bold text-center leading-[1.1] mb-8 text-[#f8fafc]">
-          THE ULTIMATE SALES ENGINE FRAMEWORK: <br className="hidden md:block" />
+        <h1 className="text-4xl md:text-[64px] font-extrabold text-center leading-[1.05] mb-12 text-[#f8fafc] tracking-tight w-full max-w-[1100px]">
+          <span className="block mb-4 md:mb-6 text-[#1877f2]">THE ULTIMATE SALES ENGINE FRAMEWORK:</span>
           TRANSFORM YOUR CLOTHING BRAND INTO <br className="hidden md:block" />
           A PREDICTABLE REVENUE MACHINE IN 90 DAYS
         </h1>
@@ -130,44 +129,45 @@ export default function WorkshopLandingPage() {
         {/* Top CTA */}
         <Button
           onClick={scrollToForm}
-          className="w-full md:w-[600px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[18px] md:text-[22px] py-7 md:py-8 rounded shadow-lg mb-10 transition-colors"
+          className="w-full md:w-[1000px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-extrabold text-[16px] sm:text-[22px] md:text-[30px] py-6 sm:py-9 md:py-12 rounded shadow-2xl mb-14 transition-all hover:scale-[1.02] uppercase tracking-wide h-auto whitespace-normal leading-tight px-4"
         >
           SECURE YOUR SPOT FOR JUST $97
         </Button>
 
         {/* What You Will Learn */}
-        <div className="w-full md:w-[700px] mb-10">
-          <h2 className="text-[20px] md:text-[24px] font-bold text-center mb-6 text-white">
+        <div className="w-full md:w-[1100px] mb-14">
+          <h2 className="text-[26px] md:text-[36px] font-extrabold text-center mb-10 text-white tracking-tight">
             WHAT YOU WILL LEARN
           </h2>
           <ul className="space-y-4 text-[15px] md:text-[16px] text-gray-200">
             <li className="flex items-start gap-3">
               <CheckIcon />
-              <p><strong>Predictable Revenue System:</strong> Discover how to generate consistent, scalable sales on demand that grow your clothing brand every month—without relying on unpredictable algorithms or trends.</p>
+
+              <p><strong className="text-green-500">Predictable Revenue System:</strong> Discover how to generate consistent, scalable sales on demand that grow your clothing brand every month—without relying on unpredictable algorithms or trends.</p>
             </li>
             <li className="flex items-start gap-3">
               <CheckIcon />
-              <p><strong>The AI Sales Engine Method:</strong> Learn the proven AI-powered sales engine that's helped a 6-figure fashion brand go from inconsistent results to predictable multi-6 and 7-figure growth within months.</p>
+              <p><strong className="text-green-500">The AI Sales Engine Method:</strong> Learn the proven AI-powered sales engine that's helped a 6-figure fashion brand go from inconsistent results to predictable multi-6 and 7-figure growth within months.</p>
             </li>
             <li className="flex items-start gap-3">
               <CheckIcon />
-              <p><strong>Fix Unstable ROAS:</strong> Finally overcome declining ROAS and inconsistent sales with a step-by-step system that works even if your ads have stopped converting or performance keeps dropping.</p>
+              <p><strong className="text-green-500">Fix Unstable ROAS:</strong> Finally overcome declining ROAS and inconsistent sales with a step-by-step system that works even if your ads have stopped converting or performance keeps dropping.</p>
             </li>
             <li className="flex items-start gap-3">
               <CheckIcon />
-              <p><strong>Hidden Demand Control:</strong> Gain access to demand-generation strategies most fashion brand owners never discover—giving you the ability to control when and how your brand makes money.</p>
+              <p><strong className="text-green-500">Hidden Demand Control:</strong> Gain access to demand-generation strategies most fashion brand owners never discover—giving you the ability to control when and how your brand makes money.</p>
             </li>
             <li className="flex items-start gap-3">
               <CheckIcon />
-              <p><strong>Plug-and-Play Execution:</strong> Walk away with 3 actionable systems and frameworks you can implement immediately to stabilize revenue and start scaling with confidence.</p>
+              <p><strong className="text-green-500">Plug-and-Play Execution:</strong> Walk away with 3 actionable systems and frameworks you can implement immediately to stabilize revenue and start scaling with confidence.</p>
             </li>
             <li className="flex items-start gap-3">
               <CheckIcon />
-              <p><strong>Direct Expert Guidance:</strong> Learn from a system backed by 2000+ brand consultations and $15M+ generated, so you can scale your brand with clarity—without guesswork or costly mistakes.</p>
+              <p><strong className="text-green-500">Direct Expert Guidance:</strong> Learn from a system backed by 2000+ brand consultations and $15M+ generated, so you can scale your brand with clarity—without guesswork or costly mistakes.</p>
             </li>
             <li className="flex items-start gap-3">
               <CheckIcon />
-              <p><strong>Eliminate Scaling Risk:</strong> Remove the fear of scaling ads and losing profitability, so you can grow aggressively with confidence, knowing your system is stable and repeatable.</p>
+              <p><strong className="text-green-500">Eliminate Scaling Risk:</strong> Remove the fear of scaling ads and losing profitability, so you can grow aggressively with confidence, knowing your system is stable and repeatable.</p>
             </li>
           </ul>
         </div>
@@ -175,20 +175,20 @@ export default function WorkshopLandingPage() {
         {/* Mid CTA */}
         <Button
           onClick={scrollToForm}
-          className="w-full md:w-[600px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[18px] md:text-[22px] py-7 md:py-8 rounded shadow-lg mb-6"
+          className="w-full md:w-[1000px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-extrabold text-[16px] sm:text-[22px] md:text-[30px] py-6 sm:py-9 md:py-12 rounded shadow-2xl mb-10 transition-all hover:scale-[1.02] uppercase tracking-wide h-auto whitespace-normal leading-tight px-4"
         >
           ATTEND FOR JUST $97
         </Button>
 
         {/* Note Box */}
-        <div className="w-full md:w-[700px] bg-white text-black p-4 md:p-5 rounded-sm shadow-md mb-6 border border-gray-200">
-          <p className="text-[13px] md:text-[14px] leading-relaxed text-center font-medium">
+        <div className="w-full md:w-[1000px] bg-white text-black p-6 md:p-8 rounded-sm shadow-xl mb-10 border border-gray-200">
+          <p className="text-[15px] md:text-[18px] leading-relaxed text-center font-semibold">
             <span className="text-[#ef4444] font-bold">NOTE:</span> This workshop is priced at $97 for fashion brand owners who are serious about scaling profitably and stepping into a true leadership role. The framework is built on years of experience and proven results across dozens of brands.
           </p>
         </div>
 
         {/* Forms Container */}
-        <div id="register-form" className="w-full md:w-[700px] bg-white rounded-md shadow-2xl mb-2 overflow-hidden text-black pt-1">
+        <div id="register-form" className="w-full md:w-[1100px] bg-white rounded-md shadow-[0_0_40px_rgba(255,255,255,0.05)] mb-6 overflow-hidden text-black pt-4">
           {success ? (
             <div className="p-10 text-center flex flex-col items-center">
               <CheckIcon />
@@ -248,7 +248,7 @@ export default function WorkshopLandingPage() {
                     />
                     <Button
                       type="submit"
-                      className="w-full bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[18px] md:text-[22px] py-7 md:py-8 rounded shadow-lg mt-4 transition-all"
+                      className="w-full bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[16px] sm:text-[18px] md:text-[22px] py-5 sm:py-7 md:py-8 rounded shadow-lg mt-4 transition-all h-auto whitespace-normal leading-tight"
                     >
                       SECURE YOUR SPOT
                     </Button>
@@ -272,7 +272,7 @@ export default function WorkshopLandingPage() {
                     <Button
                       onClick={handleStripePayment}
                       disabled={loading}
-                      className="w-full bg-[#111827] hover:bg-[#1f2937] text-white font-bold text-[18px] md:text-[22px] py-7 md:py-8 rounded shadow-xl transition-all flex justify-center items-center gap-2"
+                      className="w-full bg-[#111827] hover:bg-[#1f2937] text-white font-bold text-[16px] sm:text-[18px] md:text-[22px] py-5 sm:py-7 md:py-8 rounded shadow-xl transition-all flex justify-center items-center gap-2 h-auto whitespace-normal leading-tight px-2"
                     >
                       {loading ? (
                         <>
@@ -298,58 +298,58 @@ export default function WorkshopLandingPage() {
           )}
         </div>
 
-        <p className="w-full md:w-[650px] text-center text-[10px] text-gray-400 mb-10 leading-relaxed font-medium px-4">
+        <p className="w-full md:w-[1000px] text-center text-[12px] md:text-[14px] text-gray-400 mb-14 leading-relaxed font-medium px-4">
           By clicking the button above you agree to our Terms & Conditions and Privacy Policy.<br className="hidden md:block" />
           Your information is 100% secure and will not be shared.
         </p>
 
         {/* Large White Block */}
-        <div className="w-full md:w-[700px] bg-white text-black p-8 md:p-12 rounded-md shadow-2xl mb-12 flex flex-col items-center">
+        <div className="w-full md:w-[1100px] bg-white text-black p-6 sm:p-10 md:p-20 rounded-md shadow-[0_0_40px_rgba(255,255,255,0.05)] mb-16 flex flex-col items-center">
 
-          <h2 className="text-[26px] md:text-[32px] font-extrabold mb-8 text-center tracking-tight">
+          <h2 className="text-[32px] md:text-[46px] font-black mb-12 text-center tracking-tight">
             HOW IT WORKS
           </h2>
 
-          <div className="w-full max-w-[500px] mb-12 pl-2">
-            <ol className="list-decimal pl-5 space-y-4 text-[15px] md:text-[16px] font-medium text-gray-800">
-              <li className="pl-2">Register now and receive access details (materials/links/training access) directly in your inbox.</li>
-              <li className="pl-2">Participate in live Q&A session where you can ask questions and secure an optimal answer.</li>
-              <li className="pl-2">Apply what you learn and immediately see a resulting improve dramatically.</li>
+          <div className="w-full max-w-[800px] mb-14 pl-2">
+            <ol className="list-decimal pl-5 space-y-5 text-[16px] md:text-[20px] font-medium text-gray-800">
+              <li className="pl-3">Register now and receice access details directly to your inbox. Can't make it live? A replay will be available for 48 hours.</li>
+              <li className="pl-3">Participate in live Q&A session where you can ask questions and secure an optimal answer.</li>
+              <li className="pl-3">Apply what you learn and immediately see a resulting improve dramatically.</li>
             </ol>
           </div>
 
-          <h2 className="text-[22px] md:text-[26px] font-extrabold mb-6 text-center tracking-tight">
+          <h2 className="text-[26px] md:text-[34px] font-extrabold mb-8 text-center tracking-tight">
             YOUR DECISION IS <br className="md:hidden" /> RISK-FREE
           </h2>
 
           {/* Worst Case */}
-          <div className="w-full max-w-[550px] mb-6 border border-red-100 rounded overflow-hidden shadow-sm">
-            <div className="bg-[#ef4444] text-white font-extrabold text-[18px] md:text-[22px] text-center py-2.5 tracking-wide">
+          <div className="w-full max-w-[850px] mb-8 border border-red-100 rounded-lg overflow-hidden shadow-sm">
+            <div className="bg-[#ef4444] text-white font-extrabold text-[16px] sm:text-[20px] md:text-[26px] text-center py-3 md:py-4 tracking-wide px-2 h-auto whitespace-normal">
               WORST CASE SCENARIO:
             </div>
-            <div className="p-5 md:p-6 bg-white text-center">
-              <p className="text-[#ef4444] font-bold text-[14px] md:text-[15px] mb-3">
+            <div className="p-4 sm:p-6 md:p-8 bg-white text-center">
+              <p className="text-[#ef4444] font-bold text-[16px] md:text-[20px] mb-4">
                 You attend the workshop, decide it's not for you, and contact us within 24 hours.
               </p>
-              <p className="text-[13px] md:text-[14px] text-gray-700 leading-relaxed font-medium">
-                Simply contact us at <strong>Yasir.sultan@zenfocusmedia.com</strong> within 24 hours and we'll process your refund—no questions asked, no hard feelings.
+              <p className="text-[15px] md:text-[18px] text-gray-700 leading-relaxed font-medium">
+                Simply contact us at <strong>yasirsultan1992@gmail.com</strong> within 24 hours and we'll process your refund—no questions asked, no hard feelings.
               </p>
             </div>
           </div>
 
           {/* Best Case */}
-          <div className="w-full max-w-[550px] mb-8 border border-green-100 rounded overflow-hidden shadow-sm">
-            <div className="bg-[#22c55e] text-white font-extrabold text-[18px] md:text-[22px] text-center py-2.5 tracking-wide">
+          <div className="w-full max-w-[850px] mb-12 border border-green-100 rounded-lg overflow-hidden shadow-sm">
+            <div className="bg-[#22c55e] text-white font-extrabold text-[16px] sm:text-[20px] md:text-[26px] text-center py-3 md:py-4 tracking-wide px-2 h-auto whitespace-normal">
               BEST CASE SCENARIO:
             </div>
-            <div className="p-5 md:p-6 bg-white text-center">
-              <p className="text-black font-bold text-[14px] md:text-[15px] mb-3">
+            <div className="p-4 sm:p-6 md:p-8 bg-white text-center">
+              <p className="text-black font-bold text-[16px] md:text-[20px] mb-4">
                 You apply what you learn and achieve predictable, scalable 7-figure months that far exceed your small investment of $97.
               </p>
-              <p className="text-[13px] md:text-[14px] text-gray-700 leading-relaxed font-medium mb-3">
+              <p className="text-[15px] md:text-[18px] text-gray-700 leading-relaxed font-medium mb-4">
                 Many participants report doubling their revenue within just a few months, making this potentially the most valuable hour you'll spend on growing your brand this year.
               </p>
-              <p className="text-[#ef4444] font-bold text-[13px] md:text-[14px] leading-relaxed">
+              <p className="text-[#ef4444] font-bold text-[15px] md:text-[18px] leading-relaxed">
                 The Only Risk? <span className="text-black font-medium">Missing out on the knowledge and strategies that could transform your business, revenue, and lifestyle.</span>
               </p>
             </div>
@@ -358,102 +358,97 @@ export default function WorkshopLandingPage() {
           {/* Internal CTA */}
           <Button
             onClick={scrollToForm}
-            className="w-full md:w-[500px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[18px] md:text-[20px] py-7 rounded shadow-md mt-4"
+            className="w-full md:w-[900px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-extrabold text-[16px] sm:text-[22px] md:text-[28px] py-6 sm:py-9 md:py-12 rounded shadow-xl mt-8 hover:scale-[1.02] transition-all h-auto whitespace-normal leading-tight px-4"
           >
             RESERVE YOUR PLACE NOW FOR $97
           </Button>
         </div>
 
         {/* P.S. Section */}
-        <h3 className="text-[#1877f2] font-bold text-[18px] md:text-[22px] text-center mb-8 uppercase px-4 leading-tight max-w-[650px]">
-          P.S. HERE'S SOME FACTS ABOUT US AND WHY YOU SHOULD ATTEND THIS WORKSHOP…
+        <h3 className="text-[#1877f2] font-black text-[18px] sm:text-[24px] md:text-[36px] text-center mb-12 uppercase px-4 leading-tight max-w-[1000px] tracking-tight">
+          P.S. HERE'S SOME FACTS ABOUT US AND WHY YOU SHOULD ATTEND THIS WORKSHOP...
         </h3>
 
         {/* ✨ PREMIUM MASONRY GALLERY ✨ */}
-        <div className="w-full md:w-[700px] mb-8 px-4 md:px-0">
+        <div className="w-full md:w-[1100px] mb-14 px-4 md:px-0 flex flex-col gap-4">
 
-          {/* Featured top row: image 1 large left + image 6 portrait right */}
-          <div className="flex gap-4 mb-4">
+          {/* Featured top row: image 1 large left + image 2 portrait right */}
+          <div className="flex flex-col md:flex-row gap-4">
             {/* Large feature card */}
             <div className="flex-[2] bg-white rounded-2xl shadow-xl p-3 flex flex-col">
               <div
-                className="rounded-xl overflow-hidden relative group cursor-pointer"
-                style={{ minHeight: "200px" }}
+                className="rounded-xl overflow-hidden relative group cursor-pointer bg-gray-50 flex items-center justify-center"
                 onClick={() => setPreviewImage("/1.jpeg")}
               >
                 <Image
                   src="/1.jpeg"
                   alt="Social proof 1"
-                  width={450}
-                  height={280}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  style={{ minHeight: "200px" }}
+                  width={1000}
+                  height={1000}
+                  className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl" />
               </div>
-              <p className="font-extrabold text-[14px] text-black mt-2.5 px-1">Social proof image 1 👍</p>
+              <p className="font-extrabold text-[14px] text-black mt-3 px-1">Social proof image 1 👍</p>
             </div>
 
             {/* Portrait card */}
             <div className="flex-[1] bg-white rounded-2xl shadow-xl p-3 flex flex-col">
               <div
-                className="rounded-xl overflow-hidden relative group flex-1 cursor-pointer"
-                style={{ minHeight: "200px" }}
+                className="rounded-xl overflow-hidden relative group cursor-pointer bg-gray-50 flex-1 flex items-center justify-center"
                 onClick={() => setPreviewImage("/2.png")}
               >
                 <Image
                   src="/2.png"
                   alt="Social proof 2"
-                  width={220}
-                  height={280}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  style={{ minHeight: "200px" }}
+                  width={1000}
+                  height={1000}
+                  className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl" />
               </div>
-              <p className="font-extrabold text-[14px] text-black mt-2.5 px-1">Social proof image 2 👍</p>
+              <p className="font-extrabold text-[14px] text-black mt-3 px-1">Social proof image 2 👍</p>
             </div>
           </div>
 
           {/* Middle row: 3 square cards */}
-          <div className="grid grid-cols-3 gap-4 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[{ src: "/3.png", n: 3 }, { src: "/4.jpeg", n: 4 }, { src: "/5.jpeg", n: 5 }].map(({ src, n }) => (
               <div key={n} className="bg-white rounded-2xl shadow-xl p-3 flex flex-col">
                 <div
-                  className="rounded-xl overflow-hidden relative group aspect-square cursor-pointer"
+                  className="rounded-xl overflow-hidden relative group cursor-pointer bg-gray-50 flex-1 flex items-center justify-center"
                   onClick={() => setPreviewImage(src)}
                 >
                   <Image
                     src={src}
                     alt={`Social proof ${n}`}
-                    width={220}
-                    height={220}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={800}
+                    height={800}
+                    className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl" />
                 </div>
-                <p className="font-extrabold text-[13px] text-black mt-2 px-1">Social proof image {n} 👍</p>
+                <p className="font-extrabold text-[13px] text-black mt-3 px-1">Social proof image {n} 👍</p>
               </div>
             ))}
           </div>
 
-          {/* Bottom: full-width panoramic card */}
-          <div className="bg-white rounded-2xl shadow-xl p-3">
+          {/* Bottom: individual card */}
+          <div className="bg-white rounded-2xl shadow-xl p-3 w-full max-w-[500px] mx-auto">
             <div
-              className="rounded-xl overflow-hidden relative group cursor-pointer"
-              style={{ height: "170px" }}
+              className="rounded-xl overflow-hidden relative group cursor-pointer bg-gray-50 flex items-center justify-center"
               onClick={() => setPreviewImage("/6.jpeg")}
             >
               <Image
                 src="/6.jpeg"
                 alt="Social proof 6"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="700px"
+                width={800}
+                height={800}
+                className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-xl" />
             </div>
-            <p className="font-extrabold text-[14px] text-black mt-2.5 px-1">Social proof image 6 👍</p>
+            <p className="font-extrabold text-[14px] text-black mt-3 px-1 text-center">Social proof image 6 👍</p>
           </div>
 
         </div>
@@ -461,7 +456,7 @@ export default function WorkshopLandingPage() {
         {/* Final CTA */}
         <Button
           onClick={scrollToForm}
-          className="w-full md:w-[500px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-bold text-[18px] md:text-[20px] py-7 md:py-8 rounded shadow-lg mb-16"
+          className="w-full md:w-[1000px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-extrabold text-[16px] sm:text-[22px] md:text-[28px] py-6 sm:py-9 md:py-12 rounded shadow-2xl mb-20 hover:scale-[1.02] transition-all uppercase tracking-wide h-auto whitespace-normal leading-tight px-4"
         >
           RESERVE YOUR PLACE NOW FOR $97
         </Button>

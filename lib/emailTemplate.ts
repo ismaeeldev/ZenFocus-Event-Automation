@@ -15,23 +15,23 @@ export function renderHtml(firstName: string, lines: string[]): string {
     // Absolute URL is required for email clients to render images
     // Make sure NEXT_PUBLIC_APP_URL is set in your environment (e.g. https://your-domain.com)
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "";
-    const zoomLink = process.env.NEXT_PUBLIC_ZOOM_LINK || "https://zoom.us/";
+    const meetLink = process.env.NEXT_PUBLIC_MEET_LINK || "https://meet.google.com/jqn-iuob-pbz";
     const replayLink = process.env.NEXT_PUBLIC_REPLAY_LINK || `${baseUrl}/replay`;
 
     // Google Calendar "Add to Calendar" link
-    // Event: April 10, 2026 06:00 AM – 07:30 AM DUBAI (90 min workshop)
+    // Event: April 14, 2026 08:00 PM – 09:30 PM New York time (EST) (90 min workshop)
     const calendarUrl = "https://www.google.com/calendar/render?action=TEMPLATE"
         + "&text=" + encodeURIComponent("The Ultimate Sales Engine Framework — Live Workshop")
-        + "&dates=20260410T020000Z/20260410T033000Z"
-        + "&details=" + encodeURIComponent("Join the live workshop to learn how to transform your clothing brand into a predictable revenue machine.\n\nZoom Link: " + zoomLink)
-        + "&location=" + encodeURIComponent("Zoom (Online)")
+        + "&dates=20260415T010000Z/20260415T023000Z"
+        + "&details=" + encodeURIComponent("Join the live workshop to learn how to transform your clothing brand into a predictable revenue machine.\n\nGoogle Meet Link: " + meetLink + "\nPhone Dial: +1 289-949-4718 PIN: 619 166 014#")
+        + "&location=" + encodeURIComponent("Google Meet (Online)")
         + "&sf=true&output=xml";
 
     const formattedLines = lines.map(line => {
         if (!line.trim()) return "<br/>";
 
         // Replace placeholder links with real URLs
-        line = line.replace(/\[Registration Link\]/g, zoomLink);
+        line = line.replace(/\[Registration Link\]/g, meetLink);
         line = line.replace(/\[Replay Link\]/g, replayLink);
         line = line.replace(/\[Calendar Link\]/g, calendarUrl);
         
