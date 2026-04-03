@@ -23,12 +23,33 @@ export default function WorkshopLandingPage() {
   const [visitorCount, setVisitorCount] = useState(0);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
 
+  const trackScrollCtaClick = (placement: "top" | "middle" | "bottom") => {
+    fbEvent("CTAButtonClick", {
+      button_type: "scroll_to_form",
+      placement,
+      page: "landing",
+    });
+  };
+
   // Track visitor on mount
   useEffect(() => {
     fetch("/api/visitors", { method: "POST" })
       .then(res => res.json())
       .then(data => setVisitorCount(data.count))
       .catch(() => { });
+  }, []);
+
+  // Track landing page intent once per browser tab session.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const key = "fb_viewcontent_landing";
+    if (window.sessionStorage.getItem(key)) return;
+
+    fbEvent("ViewContent", {
+      content_name: "Sales Engine Workshop Landing",
+      content_category: "Workshop",
+    });
+    window.sessionStorage.setItem(key, "1");
   }, []);
 
   const scrollToForm = () => {
@@ -130,7 +151,10 @@ export default function WorkshopLandingPage() {
 
         {/* Top CTA */}
         <Button
-          onClick={scrollToForm}
+          onClick={() => {
+            trackScrollCtaClick("top");
+            scrollToForm();
+          }}
           className="w-full md:w-[900px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-extrabold text-[14px] sm:text-[17px] md:text-[22px] py-4 sm:py-6 md:py-8 rounded shadow-2xl mb-14 transition-all hover:scale-[1.02] uppercase tracking-wide h-auto whitespace-normal leading-tight px-4 cursor-pointer"
         >
           SECURE YOUR SPOT FOR JUST $97
@@ -212,7 +236,10 @@ export default function WorkshopLandingPage() {
 
         {/* Mid CTA */}
         <Button
-          onClick={scrollToForm}
+          onClick={() => {
+            trackScrollCtaClick("middle");
+            scrollToForm();
+          }}
           className="w-full md:w-[900px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-extrabold text-[14px] sm:text-[17px] md:text-[22px] py-4 sm:py-6 md:py-8 rounded shadow-2xl mb-10 transition-all hover:scale-[1.02] uppercase tracking-wide h-auto whitespace-normal leading-tight px-4 cursor-pointer"
         >
           ATTEND FOR JUST $97
@@ -395,7 +422,10 @@ export default function WorkshopLandingPage() {
 
           {/* Internal CTA */}
           <Button
-            onClick={scrollToForm}
+            onClick={() => {
+              trackScrollCtaClick("bottom");
+              scrollToForm();
+            }}
             className="w-full md:w-[800px] bg-[#1877f2] hover:bg-[#1565c0] text-white font-extrabold text-[14px] sm:text-[17px] md:text-[22px] py-4 sm:py-6 md:py-8 rounded shadow-xl mt-8 hover:scale-[1.02] transition-all h-auto whitespace-normal leading-tight px-4 cursor-pointer"
           >
             RESERVE YOUR PLACE NOW FOR $97

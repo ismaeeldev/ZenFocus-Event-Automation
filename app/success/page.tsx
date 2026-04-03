@@ -74,13 +74,19 @@ function SuccessContent() {
         if (!res.ok) throw new Error(data.error || "Verification failed.");
         setSessionData(data);
 
-        // 🔥 FB Pixel: Purchase event — payment confirmed by Stripe
-        fbEvent("Purchase", {
-          value: 97,
-          currency: "USD",
-          content_name: "Sales Engine Workshop",
-          transaction_id: data.transactionId,
-        });
+        // Fire Purchase once per Stripe session id to avoid duplicates in strict/dev remounts.
+        if (typeof window !== "undefined") {
+          const purchaseKey = `fb_purchase_${sessionId}`;
+          if (!window.sessionStorage.getItem(purchaseKey)) {
+            fbEvent("Purchase", {
+              value: 97,
+              currency: "USD",
+              content_name: "Sales Engine Workshop",
+              transaction_id: data.transactionId,
+            });
+            window.sessionStorage.setItem(purchaseKey, "1");
+          }
+        }
       } catch (err: any) {
         setError(err.message);
       } finally {

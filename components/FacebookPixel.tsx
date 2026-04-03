@@ -43,7 +43,6 @@ function initPixel() {
   })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
 
   window.fbq("init", FB_PIXEL_ID);
-  window.fbq("track", "PageView");
 }
 
 /**
@@ -57,7 +56,35 @@ function initPixel() {
 export function fbEvent(name: string, params?: Record<string, any>) {
   if (!FB_PIXEL_ID) return;
   if (typeof window === "undefined" || !window.fbq) return;
-  window.fbq("track", name, params);
+
+  // Standard FB events should use "track"; everything else should use "trackCustom".
+  const standardEvents = new Set([
+    "AddPaymentInfo",
+    "AddToCart",
+    "AddToWishlist",
+    "CompleteRegistration",
+    "Contact",
+    "CustomizeProduct",
+    "Donate",
+    "FindLocation",
+    "InitiateCheckout",
+    "Lead",
+    "Purchase",
+    "Schedule",
+    "Search",
+    "StartTrial",
+    "SubmitApplication",
+    "Subscribe",
+    "ViewContent",
+    "PageView",
+  ]);
+
+  if (standardEvents.has(name)) {
+    window.fbq("track", name, params);
+    return;
+  }
+
+  window.fbq("trackCustom", name, params);
 }
 
 /**
