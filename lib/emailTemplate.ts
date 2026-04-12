@@ -19,10 +19,10 @@ export function renderHtml(firstName: string, lines: string[]): string {
     const replayLink = process.env.NEXT_PUBLIC_REPLAY_LINK || `${baseUrl}/replay`;
 
     // Google Calendar "Add to Calendar" link
-    // Event: April 14, 2026 08:00 PM – 09:30 PM New York time (EST) (90 min workshop)
+    // Event: Sunday, April 19, 2026 08:00 PM – 09:30 PM New York time (EST) (90 min workshop)
     const calendarUrl = "https://www.google.com/calendar/render?action=TEMPLATE"
         + "&text=" + encodeURIComponent("The Ultimate Sales Engine Framework — Live Workshop")
-        + "&dates=20260415T010000Z/20260415T023000Z"
+        + "&dates=20260420T000000Z/20260420T013000Z"
         + "&details=" + encodeURIComponent("Join the live workshop to learn how to transform your clothing brand into a predictable revenue machine.\n\nGoogle Meet Link: " + meetLink + "\nPhone Dial: +1 289-949-4718 PIN: 619 166 014#")
         + "&location=" + encodeURIComponent("Google Meet (Online)")
         + "&sf=true&output=xml";

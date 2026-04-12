@@ -132,7 +132,7 @@ export default function WorkshopLandingPage() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 flex flex-col items-center">
 
         <div className="w-full max-w-[1000px] bg-[#1877f2] text-white font-bold text-[11px] sm:text-[13px] md:text-[17px] py-2.5 sm:py-3 px-2 rounded mb-6 text-center uppercase tracking-wide shadow-md leading-tight">
-          FREE ONLINE MASTERCLASS — April 13, 2026 | 8pm New York time (EST)
+          FREE ONLINE MASTERCLASS — April 19, 2026 | 8pm New York time (EST)
         </div>
 
         {/* Live Visitor Counter */}
@@ -147,7 +147,7 @@ export default function WorkshopLandingPage() {
         )}
 
         {/* Headline */}
-        <h1 className="text-[28px] sm:text-3xl md:text-[50px] font-extrabold text-center leading-[1.1] mb-8 md:mb-10 text-[#f8fafc] tracking-tight w-full max-w-[950px]">
+        <h1 className="text-[28px] sm:text-3xl md:text-[54px] font-extrabold text-center leading-[1.1] mb-8 md:mb-10 text-[#f8fafc] tracking-tight w-full max-w-[950px]">
           <span className="block mb-3 md:mb-5 text-[#1877f2]">
             THE ULTIMATE SALES ENGINE FRAMEWORK:
           </span>
@@ -176,7 +176,7 @@ export default function WorkshopLandingPage() {
           <ul className="space-y-5 md:space-y-6 text-[16px] sm:text-[18px] md:text-[21px] text-gray-200 leading-[1.7]">
 
             <li className="flex items-start gap-3">
-              <div className="mt-1 shrink-0">
+              <div className="mt-1.5 shrink-0">
                 <CheckIcon />
               </div>
               <p>
@@ -185,7 +185,7 @@ export default function WorkshopLandingPage() {
             </li>
 
             <li className="flex items-start gap-3">
-              <div className="mt-1 shrink-0">
+              <div className="mt-1.5 shrink-0">
                 <CheckIcon />
               </div>
               <p>
@@ -194,7 +194,7 @@ export default function WorkshopLandingPage() {
             </li>
 
             <li className="flex items-start gap-3">
-              <div className="mt-1 shrink-0">
+              <div className="mt-1.5 shrink-0">
                 <CheckIcon />
               </div>
               <p>
@@ -203,7 +203,7 @@ export default function WorkshopLandingPage() {
             </li>
 
             <li className="flex items-start gap-3">
-              <div className="mt-1 shrink-0">
+              <div className="mt-1.5 shrink-0">
                 <CheckIcon />
               </div>
               <p>
@@ -212,7 +212,7 @@ export default function WorkshopLandingPage() {
             </li>
 
             <li className="flex items-start gap-3">
-              <div className="mt-1 shrink-0">
+              <div className="mt-1.5 shrink-0">
                 <CheckIcon />
               </div>
               <p>
@@ -221,7 +221,7 @@ export default function WorkshopLandingPage() {
             </li>
 
             <li className="flex items-start gap-3">
-              <div className="mt-1 shrink-0">
+              <div className="mt-1.5 shrink-0">
                 <CheckIcon />
               </div>
               <p>
@@ -230,7 +230,7 @@ export default function WorkshopLandingPage() {
             </li>
 
             <li className="flex items-start gap-3">
-              <div className="mt-1 shrink-0">
+              <div className="mt-1.5 shrink-0">
                 <CheckIcon />
               </div>
               <p>
