@@ -60,8 +60,8 @@ function SuccessContent() {
     setTimeout(() => setCopiedField(null), 2000);
   };
 
-  const date = "April 19, 2026";
-  const time = "8pm New York time (EST)";
+  const date = "May 26, 2026";
+  const time = "3pm New York time (EST)";
 
   useEffect(() => {
     if (!sessionId) {

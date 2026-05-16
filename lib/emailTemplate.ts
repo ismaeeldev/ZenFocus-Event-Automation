@@ -19,11 +19,11 @@ export function renderHtml(firstName: string, lines: string[]): string {
     const replayLink = process.env.NEXT_PUBLIC_REPLAY_LINK || `${baseUrl}/replay`;
 
     // Google Calendar "Add to Calendar" link
-    // Event: Sunday, April 19, 2026 08:00 PM – 09:30 PM New York time (EST) (90 min workshop)
+    // Event: Tuesday, May 26, 2026 03:00 PM – 04:30 PM New York time (EST) (90 min workshop)
     const calendarUrl = "https://www.google.com/calendar/render?action=TEMPLATE"
-        + "&text=" + encodeURIComponent("The Ultimate Sales Engine Framework — Live Workshop")
-        + "&dates=20260420T000000Z/20260420T013000Z"
-        + "&details=" + encodeURIComponent("Join the live workshop to learn how to transform your clothing brand into a predictable revenue machine.\n\nGoogle Meet Link: " + meetLink + "\nPhone Dial: +1 289-949-4718 PIN: 619 166 014#")
+        + "&text=" + encodeURIComponent("How Clothing Brands Scale Without Destroying Profitability — Live Workshop")
+        + "&dates=20260526T190000Z/20260526T203000Z"
+        + "&details=" + encodeURIComponent("Join the live workshop to learn the system behind predictable growth and stable ROAS for your clothing brand.\n\nGoogle Meet Link: " + meetLink + "\nPhone Dial: +1 289-949-4718 PIN: 619 166 014#")
         + "&location=" + encodeURIComponent("Google Meet (Online)")
         + "&sf=true&output=xml";
 
@@ -127,14 +127,14 @@ const templates = [
             "But here’s the brutal truth:",
             "<b>You don’t have an ad problem. You have a demand control problem.</b>",
             "Because if you don’t control demand… your entire business is at the mercy of platforms, trends, and competition.",
-            "What if I told you there was a way to turn your brand into a predictable sales engine… so you can scale without worrying about ROAS crashes or algorithm changes?",
+            "What if I told you there was a way to scale your brand without your ROAS collapsing or your business feeling fragile every month?",
             "I’m going to show you exactly how in the workshop you just registered for:" ,
-            "<b>How to Build a Predictable, Scalable Sales Engine for Your Fashion Brand</b>",
+            "<b>How Clothing Brands Scale Without Destroying Profitability</b>",
             "Inside, I’ll show you:",
             "• Why most brands lose stability as they scale",
             "• How to generate demand instead of chasing it",
             "• The system behind consistent, predictable revenue",
-            "• How we helped Abdul go from $80k at 2.5x ROAS → $1.1M at 3.3x ROAS",
+            "• How we helped a brand owner add $1.2M to his brand in 13 months",
             "Make sure you show up.",
             "<a href=\"[Registration Link]\" style=\"display: inline-block; padding: 12px 24px; background-color: #000000; color: #ffffff; text-decoration: none; border-radius: 6px; margin-top: 15px;\">Access Your Workshop Details Here</a>"
         ]
@@ -193,9 +193,9 @@ const templates = [
     {
         id: "rem_1d", triggerHours: 24, subject: "Are we still on for tomorrow?",
         body: [
-            "Just a quick reminder that the AI-Powered Brand Scaling webinar is happening TOMORROW.",
+            "Just a quick reminder that the 'How Clothing Brands Scale Without Destroying Profitability' webinar is happening TOMORROW.",
             "During this live session, you’ll discover:",
-            "✓ How we helped Abdul scale from $80K at 2.5x ROAS → $207K at 3.78x ROAS while nearly doubling ad spend",
+            "✓ How we helped a clothing brand owner add $1.2M to his brand in 13 months",
             "✓ The exact AI-driven sales engine and identity-focused messaging framework",
             "✓ How to finally take control of your revenue so you can focus on creativity, lifestyle, and growth",
             "Plus, there’s a special bonus for live attendees only—something that could save you months of trial and error.",
@@ -207,7 +207,7 @@ const templates = [
     {
         id: "rem_5h", triggerHours: 5, subject: "Your brand-scaling webinar starts in 5 hours!",
         body: [
-            "This is your 5-hour reminder that the AI-Powered Brand Scaling webinar is happening TODAY.",
+            "This is your 5-hour reminder that the 'How Clothing Brands Scale Without Destroying Profitability' webinar is happening TODAY.",
             "In just a few hours, you'll learn exactly how to break free from unpredictable revenue and create a system that consistently generates scalable sales.",
             "Here’s what I need you to do to get the most out of this:",
             "1. Clear your schedule—this is an investment in your freedom and your brand’s growth.",
@@ -226,9 +226,9 @@ const templates = [
         ]
     },
     {
-        id: "rem_live", triggerHours: 0, subject: "We are LIVE! [AI-Powered Brand Growth]",
+            "id: \"rem_live\", triggerHours: 0, subject: \"We are LIVE! [How Clothing Brands Scale]\",
         body: [
-            "We are now LIVE for the AI-Powered Brand Growth webinar!",
+            "We are now LIVE for the 'How Clothing Brands Scale Without Destroying Profitability' webinar!",
             "The live seats are filling up fast, so click the link NOW to make sure you don’t miss out:",
             "<a href=\"[Registration Link]\" style=\"display: inline-block; padding: 16px 32px; font-size: 18px; font-weight: bold; background-color: #34a853; color: #ffffff; text-decoration: none; border-radius: 6px; margin-top: 15px;\">JOIN HERE NOW</a>",
             "This is it – your chance to finally break free from unpredictable revenue. See you inside!"
@@ -248,10 +248,10 @@ const templates = [
         ]
     },
     {
-        id: "post_24h", triggerHours: -24, subject: "Here’s your replay of the AI-Powered Brand Growth webinar…",
+        id: "post_24h", triggerHours: -24, subject: "Here’s your replay of the 'How Clothing Brands Scale' webinar…",
         body: [
-            "Did you miss the AI-Powered Brand Growth webinar? You’re not alone, but the good news is—you can still catch the replay.",
-            "Inside, you’ll discover exactly how clothing brand owners are hitting predictable $100K+ monthly using AI, identity-driven messaging, and automated systems…",
+            "Did you miss the 'How Clothing Brands Scale Without Destroying Profitability' webinar? You’re not alone, but the good news is—you can still catch the replay.",
+            "Inside, you’ll discover exactly how clothing brands are achieving predictable growth and stable ROAS using our proven system…",
             "Even if you’ve struggled with agencies, wasted ad spend, or inconsistent results.",
             "The replay is only available for a strictly limited time.",
             "<a href=\"[Replay Link]\" style=\"display: inline-block; padding: 12px 24px; background-color: #000000; color: #ffffff; text-decoration: none; border-radius: 6px; margin-top: 15px;\">Watch the Replay</a>",
@@ -272,8 +272,8 @@ const templates = [
     {
         id: "post_final", triggerHours: -72, subject: "Have you seen this? (Final Replay Reminder)",
         body: [
-            "Clothing brand owners are going BANANAS over the AI-Powered Brand Growth replay.",
-            "Inside, you’ll see how simple it is to break free from unpredictable revenue, even if you think your brand is 'different.'",
+            "Clothing brand owners are going BANANAS over the 'How Clothing Brands Scale' replay.",
+            "Inside, you’ll see how simple it is to break free from unpredictable revenue and ROAS crashes, even if you think your brand is 'different.'",
             "But the replay goes down TONIGHT at midnight.",
             "You’ll learn how AI + Identity-driven messaging creates predictable profits. Don’t miss your chance to finally take control of your business.",
             "<a href=\"[Replay Link]\" style=\"display: inline-block; padding: 12px 24px; background-color: #d93025; color: #ffffff; text-decoration: none; border-radius: 6px; margin-top: 15px;\">Watch Before It Expires</a>",

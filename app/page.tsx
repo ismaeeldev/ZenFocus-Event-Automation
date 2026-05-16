@@ -132,7 +132,7 @@ export default function WorkshopLandingPage() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 flex flex-col items-center">
 
         <div className="w-full max-w-[1000px] bg-[#1877f2] text-white font-bold text-[11px] sm:text-[13px] md:text-[17px] py-2.5 sm:py-3 px-2 rounded mb-6 text-center uppercase tracking-wide shadow-md leading-tight">
-          FREE ONLINE MASTERCLASS — April 19, 2026 | 8pm New York time (EST)
+          ONLINE MASTERCLASS — MAY 26, 2026 | 3PM EST
         </div>
 
         {/* Live Visitor Counter */}
@@ -147,12 +147,13 @@ export default function WorkshopLandingPage() {
         )}
 
         {/* Headline */}
-        <h1 className="text-[28px] sm:text-3xl md:text-[54px] font-extrabold text-center leading-[1.1] mb-8 md:mb-10 text-[#f8fafc] tracking-tight w-full max-w-[950px]">
-          <span className="block mb-3 md:mb-5 text-[#1877f2]">
-            THE ULTIMATE SALES ENGINE FRAMEWORK:
+        <h1 className="text-[28px] sm:text-3xl md:text-[54px] font-extrabold text-center leading-[1.1] mb-8 md:mb-10 text-[#f8fafc] tracking-tight w-full max-w-[1000px]">
+          <span className="block mb-3 md:mb-5 text-[#1877f2] uppercase">
+            HOW CLOTHING BRANDS SCALE WITHOUT DESTROYING PROFITABILITY
           </span>
-          TRANSFORM YOUR CLOTHING BRAND INTO <br className="hidden md:block" />
-          A PREDICTABLE REVENUE MACHINE IN 90 DAYS
+          <span className="text-[18px] sm:text-[22px] md:text-[28px] font-medium text-gray-300 block leading-relaxed max-w-[850px] mx-auto">
+            The system behind predictable growth, stable ROAS, and scaling revenue without your business feeling fragile every month.
+          </span>
         </h1>
 
         {/* Top CTA */}
@@ -180,7 +181,7 @@ export default function WorkshopLandingPage() {
                 <CheckIcon />
               </div>
               <p>
-                <strong className="text-green-500">Predictable Revenue System:</strong> Discover how to generate consistent, scalable sales on demand that grow your clothing brand every month—without relying on unpredictable algorithms or trends.
+                <strong className="text-green-500">Predictable Scaling Without Destroying Profitability:</strong> Discover how to scale your clothing brand in a way that increases revenue and stability — without your ROAS collapsing every time you increase ad spend.
               </p>
             </li>
 
@@ -189,7 +190,7 @@ export default function WorkshopLandingPage() {
                 <CheckIcon />
               </div>
               <p>
-                <strong className="text-green-500">The AI Sales Engine Method:</strong> Learn the proven AI-powered sales engine that's helped a 6-figure fashion brand go from inconsistent results to predictable multi-6 and 7-figure growth within months.
+                <strong className="text-green-500">The Growth System Behind Calm, Repeatable Revenue:</strong> Learn the proven customer acquisition structure that helps clothing brands move away from chaotic month-to-month sales and toward more predictable growth.
               </p>
             </li>
 
@@ -198,7 +199,7 @@ export default function WorkshopLandingPage() {
                 <CheckIcon />
               </div>
               <p>
-                <strong className="text-green-500">Fix Unstable ROAS:</strong> Finally overcome declining ROAS and inconsistent sales with a step-by-step system that works even if your ads have stopped converting or performance keeps dropping.
+                <strong className="text-green-500">How To Fix Unstable ROAS & Inconsistent Sales:</strong> Finally overcome declining ad performance with a step-by-step process that works even if your campaigns used to perform well but suddenly stopped converting.
               </p>
             </li>
 
@@ -207,7 +208,7 @@ export default function WorkshopLandingPage() {
                 <CheckIcon />
               </div>
               <p>
-                <strong className="text-green-500">Hidden Demand Control:</strong> Gain access to demand-generation strategies most fashion brand owners never discover—giving you the ability to control when and how your brand makes money.
+                <strong className="text-green-500">The Hidden Factors That Make Brands Feel Fragile:</strong> Gain access to the demand-generation and customer journey strategies most clothing brand owners overlook — giving you more control over how and when your brand grows.
               </p>
             </li>
 
@@ -216,7 +217,7 @@ export default function WorkshopLandingPage() {
                 <CheckIcon />
               </div>
               <p>
-                <strong className="text-green-500">Plug-and-Play Execution:</strong> Walk away with 3 actionable systems and frameworks you can implement immediately to stabilize revenue and start scaling with confidence.
+                <strong className="text-green-500">3 Actionable Systems You Can Implement Immediately:</strong> Walk away with practical frameworks you can use to stabilize conversion quality, improve repeatability, and scale with more confidence.
               </p>
             </li>
 
@@ -225,7 +226,7 @@ export default function WorkshopLandingPage() {
                 <CheckIcon />
               </div>
               <p>
-                <strong className="text-green-500">Direct Expert Guidance:</strong> Learn from a system backed by 2000+ brand consultations and $15M+ generated, so you can scale your brand with clarity—without guesswork or costly mistakes.
+                <strong className="text-green-500">Guidance From Someone Who’s Worked With 1,400+ Fashion Brand Owners:</strong> Learn exactly what to focus on — and what to stop wasting time and money on — so you can build a brand that scales sustainably instead of emotionally.
               </p>
             </li>
 
@@ -234,7 +235,7 @@ export default function WorkshopLandingPage() {
                 <CheckIcon />
               </div>
               <p>
-                <strong className="text-green-500">Eliminate Scaling Risk:</strong> Remove the fear of scaling ads and losing profitability, so you can grow aggressively with confidence, knowing your system is stable and repeatable.
+                <strong className="text-green-500">Remove The Fear Of Scaling Too Aggressively:</strong> Eliminate the uncertainty that prevents most clothing brands from growing confidently, so you can scale revenue without feeling like your business becomes more stressful every month.
               </p>
             </li>
 

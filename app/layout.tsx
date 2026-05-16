@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Ultimate Sales Engine Framework | Zen Focus Media",
+  title: "How Clothing Brands Scale Without Destroying Profitability | Zen Focus Media",
   description:
-    "Transform your clothing brand into a predictable revenue machine in 90 days. Join the live workshop for just $97.",
+    "The system behind predictable growth, stable ROAS, and scaling revenue without your business feeling fragile every month. Join the live workshop for just $97.",
 };
 
 const RAW_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "";

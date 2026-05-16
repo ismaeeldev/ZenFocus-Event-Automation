@@ -16,7 +16,7 @@ export async function POST(req: Request) {
           price_data: {
             currency: "usd",
             product_data: {
-              name: "The Ultimate Sales Engine Framework Workshop",
+              name: "How Clothing Brands Scale Without Destroying Profitability Workshop",
               description: "Live workshop + replay + all bonus materials",
             },
             unit_amount: 9700, // $97.00
