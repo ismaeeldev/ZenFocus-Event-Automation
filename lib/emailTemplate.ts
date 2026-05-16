@@ -226,7 +226,7 @@ const templates = [
         ]
     },
     {
-            "id: \"rem_live\", triggerHours: 0, subject: \"We are LIVE! [How Clothing Brands Scale]\",
+        id: "rem_live", triggerHours: 0, subject: "We are LIVE! [How Clothing Brands Scale]",
         body: [
             "We are now LIVE for the 'How Clothing Brands Scale Without Destroying Profitability' webinar!",
             "The live seats are filling up fast, so click the link NOW to make sure you don’t miss out:",
