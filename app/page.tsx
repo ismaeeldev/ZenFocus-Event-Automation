@@ -148,11 +148,11 @@ export default function WorkshopLandingPage() {
 
         {/* Headline */}
         <h1 className="text-[28px] sm:text-3xl md:text-[54px] font-extrabold text-center leading-[1.1] mb-8 md:mb-10 text-[#f8fafc] tracking-tight w-full max-w-[1000px]">
-          <span className="block mb-3 md:mb-5 text-[#1877f2] uppercase">
-            HOW CLOTHING BRANDS SCALE WITHOUT DESTROYING PROFITABILITY
+          <span className="block mb-3 md:mb-5 text-[#FACC15] uppercase">
+            Why Your ROAS Collapses When You Scale
           </span>
           <span className="text-[18px] sm:text-[22px] md:text-[28px] font-medium text-gray-300 block leading-relaxed max-w-[850px] mx-auto">
-            The system behind predictable growth, stable ROAS, and scaling revenue without your business feeling fragile every month.
+            A live breakdown of why clothing brands struggle to scale profitably - and how we helped a brand reach $100k+ months without burning cash.
           </span>
         </h1>
 
